@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body {  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.wave{
+    position:absolute;
+    width:100%;
+    height:143px;
+    bottom:0;
+    left:0;
+    background:url(~assets/wave.png);
+    animation: animates 10s linear infinite;  
+    }
+    
+    .wave:before{
+        content: '';
+        width:100%;
+        height:143px;
+        background:url(~assets/wave.png);
+        position:absolute;
+        top:0;
+        left:0;
+        opacity:0.4;
+        animation: animates-reverse 10s linear infinite;
+    }
+    
+    .wave:after{
+        content: '';
+        width:100%;
+        height:143px;
+        background:url(~assets/wave.png);
+        position:absolute;
+        top:0;
+        left:0;
+        opacity:0.4;
+        animation-delay: -5s;
+        animation: animates-reverse 20s linear infinite;
+    }
+    @keyframes animates
+    {
+        0%
+        {
+            background-position: 0;
+    
+        }
+       100%
+        {
+            background-position: 1360px;
+            
+        }
+    }
+    
+    @keyframes animates-reverse
+    {
+        0%
+        {
+            background-position:1360px ;
+    
+        }
+       100%
+        {
+            background-position:0 ;
+            
+        }
+    }
+   .reg a{
+        position:absolute;
+        top:30%;
+        left:30%;
+     transform:translate(-50%,50%);
+     width:200px;
+     height:40px;
+     text-align:center;
+     line-height: 40px;
+     color:#fff;
+     font-size: 20px;
+     text-transform:uppercase;
+     text-decoration: none;
+     font-family:sans-serif;
+     box-sizing: border-box;
+     background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+     background-size: 400%;
+     border-radius: 30px;
+     z-index: 1;
+    }
+    .reg a:hover{
+        animation:animatess 8s linear infinite;
+    }
+    @keyframes animatess{
+        0%{
+            background-position:0%;
+        }
+        100%{
+            background-position:400%;
+        }
+    }
+   .reg a:before{
+        content:'';
+        position:absolute;
+        top:-5px;
+        left: -5px;
+        right:-5px;
+        bottom:-5px;
+        z-index: -1;
+        background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+        background-size: 400%;
+        border-radius: 40px;
+        opacity:0;
+        transition: 0.5s;
+    }
+    .reg a:hover:before{
+        filter: blur(20px);
+        opacity:1;
+        animation:animatess 8s linear infinite;
+    }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

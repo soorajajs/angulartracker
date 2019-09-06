@@ -1,0 +1,22 @@
+<html>
+<body>
+ <button mat-raised-button (click)="logout()"color="primary">Logout</button>
+<agm-map [zoom]="15" [latitude]="lat" [longitude]="lng" > 
+<agm-marker [latitude]="lat" [longitude]="lng" 
+>
+<agm-info-window>
+<h3>Hello  {{user}} </h3>
+<p>Vehical has arrived in a pit stop</p>
+</agm-info-window>
+</agm-marker>
+  </agm-map>
+
+
+  <h4>Your History</h4>
+  <ul>
+    <li>10:34UTC <span>Crossed Toll1</span></li>
+    <li>12:11UTC <span>Crossed Toll2</span></li>
+    <li>03:24UTC <span>Vehical has arrived in a pit stop</span></li>
+  </ul>
+</body>
+  </html>

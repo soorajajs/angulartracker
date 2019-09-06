@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width,intial-scale=1,user-scalable=no,minimum-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div [hidden]="submitted" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset=md-1">
+        <div class="row">
+          <div class="col-md-5 register-left">
+            <div class="fon">
+
+              <h3>Join Us</h3>
+              <p>Helping people to make their lives easier is our mission </p>
+              <i class="material-icons">
+                  navigation
+                  </i>
+            </div>
+          </div>
+          <div class="col-md-7 register-right">
+
+            <h2>Register Here</h2>
+            
+             <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+            <div  class="register-form">
+              <div class="form-group">
+                  <label>Company Name</label>
+                <input ngModel name="companyName" id="companyName" type="text" class="form-control" placeholder="Company Name">
+               
+              </div>
+
+              <div class="form-group">
+                  <label>Address</label>
+                <input ngModel name="address"  id="address" type="text" class="form-control" placeholder="Address">
+              </div>
+               
+              <div class="form-group">
+                 
+                  <label>Phone No </label>
+                  <input ngModel name="phoneNo" id="phoneNo" type="text" class="form-control"  placeholder="PhoneNumber">
+                  
+              </div>
+
+             <!-- <div class="form-group">
+           
+                  <label>Contact Person </label>
+                  <input ngModel name="contactName" id="contactName"  type="text" class="form-control" placeholder="Name">
+                  <input ngModel name="contactNumber" id="contactNumber" type="text" class="form-control" placeholder="MobileNumber">
+                
+              </div>-->
+              <div class="form-group">
+                <label>GST No</label>
+                <input ngModel name="gstNo" id="gstNo" type="text" class="form-control" placeholder="Eg:12ABCDE1Z5">
+              </div>
+              <div class="form-group">
+           
+                  <input type="text" ngModel #password='ngModel' class="form-control" name="password" matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                    required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    *Password is required
+                  </div>
+           
+              </div>
+              <div class="form-group">
+               
+                  <input type="text" ngModel #cpassword='ngModel' class="form-control"name="cpassword" matInput placeholder="Confirm password" [type]="hide ? 'password' : 'text'"
+                    required compare="password">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <div *ngIf="cpassword.errors['required']">*Confirm Password is required</div>
+                    <div *ngIf="cpassword.errors['compare']">*Password does not Match </div>
+                  </div>
+              
+              </div>
+              <button  type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+            
+            <!-- <button (ngSubmit)="postData(companyName)" type="button" class="btn btn-primary">Register</button> -->
+        </div>
+      </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="back">
+  <div [hidden]="!submitted">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="font-size:20px;">MILESET SOFTWARE</a>
+        
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 ">
+              <li class="nav-item active">
+                <a class="nav-link" href="#" style="font-size:20px;">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="font-size:20px;">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" style="font-size:20px;">About</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size:20px;">Search</button>
+            </form>
+          </div>
+        </nav>
+    <h1>
+      
+      <span>m</span>
+      <span>i</span>
+      <span>l</span>
+      <span>e</span>
+      <span>s</span>
+      <span>e</span>
+      <span>t</span>
+      </h1>
+      <h5> Registration Completed!!</h5>
+    <h6 class='active'>Company  Registered</h6>
+    <tr *ngFor='let compan of comp | async; let i = index' [attr.data-index]='i'>
+     <td class='activ'>{{i + 1}}.</td>
+      <td class='activ'>{{compan.companyName}}</td>
+   </tr>
+
+  </div>
+</div>
+<h6 style="margin-top:40px; text-align:center;">Designed by SOORAJ NAIR</h6>
+</body>
+
+
+</html>
